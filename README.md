@@ -70,20 +70,11 @@ The extension should now be active
 
 ---
 
-## Limitations
-
-- It may not detect all phishing websites  
-- Some safe sites might be marked as suspicious  
-- Works only on Google Chrome  
-
----
-
 ## Future Improvements
 
 - Add machine learning based detection  
 - Improve accuracy of risk scoring  
-- Add user reporting system  
-- Support more browsers  
+- Add user reporting system   
 
 ---
 
