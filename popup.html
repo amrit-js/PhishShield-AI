@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PhishShield AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Animated background layers -->
+    <div class="bg-wrapper">
+        <div class="blob" id="bgBlob"></div>
+        <div class="blob blob2" id="bgBlob2"></div>
+        <div class="noise-overlay"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Main Header -->
+        <header>
+            <div class="logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="shield-logo" id="logoIcon">
+                    <path d="M12 22S4 16.5 4 8.5V5l8-3 8 3v3.5C20 16.5 12 22 12 22z" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>PhishShield AI</span>
+            </div>
+            <div class="status-badge" id="statusBadge">Analyzing...</div>
+        </header>
+
+        <!-- View: Overview -->
+        <main class="view active" id="view-overview">
+            <div class="score-ring-container">
+                <svg class="score-ring" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" class="ring-bg"></circle>
+                    <circle cx="50" cy="50" r="45" class="ring-progress" id="scoreRing"></circle>
+                </svg>
+                <div class="score-text">
+                    <span id="scoreValue">--</span><span class="percent">%</span>
+                </div>
+            </div>
+
+            <h2 class="title" id="titleText">Analyzing Site</h2>
+            <p class="description" id="descriptionText">Checking for phishing indicators...</p>
+
+            <button id="escapeBtn" class="danger-btn hidden">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 14l6-6m0 0H9m6 0v6M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                Get Back to Safety
+            </button>
+        </main>
+
+        <!-- View: Details -->
+        <main class="view" id="view-details">
+            <h2 class="section-title">Threat Breakdown</h2>
+            <div class="metrics-list">
+                <div class="metric">
+                    <div class="metric-header">
+                        <span>Brand Similarity</span>
+                        <span id="brandScoreVal">--</span>
+                    </div>
+                    <div class="metric-bar-bg">
+                        <div class="metric-bar" id="brandScoreBar"></div>
+                    </div>
+                </div>
+                <div class="metric">
+                    <div class="metric-header">
+                        <span>Suspicious Keywords</span>
+                        <span id="keywordScoreVal">--</span>
+                    </div>
+                    <div class="metric-bar-bg">
+                        <div class="metric-bar" id="keywordScoreBar"></div>
+                    </div>
+                </div>
+                <div class="metric">
+                    <div class="metric-header">
+                        <span>Risky TLD</span>
+                        <span id="tldScoreVal">--</span>
+                    </div>
+                    <div class="metric-bar-bg">
+                        <div class="metric-bar" id="tldScoreBar"></div>
+                    </div>
+                </div>
+                <div class="metric">
+                    <div class="metric-header">
+                        <span>URL Structure Risk</span>
+                        <span id="structureScoreVal">--</span>
+                    </div>
+                    <div class="metric-bar-bg">
+                        <div class="metric-bar" id="structureScoreBar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="raw-score-box">
+                <div class="raw-score-label">Analyzed Path:</div>
+                <div class="raw-url" id="analyzedUrl">--</div>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-btn active" data-target="overview">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+                <span>Overview</span>
+            </button>
+            <button class="nav-btn" data-target="details">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="16" x2="12" y2="12" />
+                    <line x1="12" y1="8" x2="12.01" y2="8" />
+                </svg>
+                <span>Details</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

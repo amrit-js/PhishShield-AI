@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "PhishShield AI",
+    "version": "2.0",
+    "description": "Smart AI-based phishing detection",
+  
+    "permissions": [
+      "activeTab",
+      "tabs",
+      "storage",
+      "scripting",
+      "notifications"
+    ],
+  
+    "host_permissions": [
+      "https://safebrowsing.googleapis.com/*",
+      "<all_urls>"
+    ],
+  
+    "background": {
+      "service_worker": "background.js"
+    },
+  
+    "action": {
+      "default_popup": "popup.html"
+
+    }
+}
